@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>王晓慧 - 品牌服务报告系统</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- 左侧边栏 -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <span class="sidebar-title">对话历史</span>
+            <button class="sidebar-toggle" id="sidebar-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <button class="new-chat-btn" id="new-chat-btn">
+            <i class="fas fa-plus"></i>
+            <span>新对话</span>
+        </button>
+        <div class="chat-history" id="chat-history">
+            <!-- 历史对话将在这里动态生成 -->
+        </div>
+    </div>
+
+    <!-- 主内容区域 -->
+    <div class="main-content">
+        <div class="chat-container">
+            <!-- 对话区域 -->
+            <div class="chat-area">
+                <div class="chat-header">
+                    <div class="chat-title">王晓慧 - 品牌服务报告系统</div>
+                    <button class="preview-toggle" id="preview-toggle">
+                        <i class="fas fa-expand-alt"></i>
+                    </button>
+                </div>
+                <div class="chat-messages" id="chat-messages">
+                    <!-- 对话消息将在这里动态生成 -->
+                </div>
+                <div class="input-area">
+                    <textarea class="message-input" id="message-input" placeholder="输入您的问题..."></textarea>
+                    <button class="send-button" id="send-button">发送</button>
+                </div>
+            </div>
+
+            <!-- 右侧预览区域 -->
+            <div class="preview-panel" id="preview-panel">
+                <div class="preview-header">
+                    <div class="preview-title">报告预览</div>
+                    <button class="preview-close" id="preview-close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="preview-content" id="preview-content">
+                    <!-- 预览内容将在这里动态生成 -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

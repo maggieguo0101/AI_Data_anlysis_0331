@@ -1,0 +1,422 @@
+/* 全局样式 */
+:root {
+    --primary-color: #4e73df;
+    --secondary-color: #f8f9fc;
+    --text-color: #333;
+    --sidebar-width: 260px;
+    --sidebar-collapsed-width: 70px;
+    --border-color: #e3e6f0;
+    --hover-color: #eaecf4;
+    --send-button-color: #4e73df;
+    --user-msg-bg: #f0f7ff;
+    --agent-msg-bg: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+/* 左侧边栏样式 */
+.sidebar {
+    width: var(--sidebar-width);
+    height: 100%;
+    background-color: white;
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    transition: width 0.3s ease;
+    z-index: 10;
+}
+
+/* 王晓慧头像区域样式 */
+.agent-profile {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid var(--border-color);
+    background-color: var(--secondary-color);
+}
+
+.agent-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+    border: 2px solid var(--primary-color);
+}
+
+.agent-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.agent-name {
+    font-weight: bold;
+    font-size: 16px;
+    color: var(--primary-color);
+}
+
+.agent-title {
+    font-size: 12px;
+    color: #666;
+}
+
+/* 当侧边栏折叠时的头像区域样式 */
+.sidebar.collapsed .agent-info {
+    display: none;
+}
+
+.sidebar.collapsed .agent-avatar {
+    width: 40px;
+    height: 40px;
+    margin-right: 0;
+}
+
+.sidebar.collapsed {
+    width: var(--sidebar-collapsed-width);
+}
+
+.sidebar-header {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.sidebar-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-color);
+    font-size: 20px;
+}
+
+.new-chat-btn {
+    margin: 15px;
+    padding: 10px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.new-chat-btn:hover {
+    opacity: 0.9;
+}
+
+.chat-history {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+.history-item {
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.history-item:hover {
+    background-color: var(--hover-color);
+}
+
+.history-item.active {
+    background-color: var(--hover-color);
+    font-weight: bold;
+}
+
+/* 当侧边栏折叠时的样式 */
+.sidebar.collapsed .sidebar-title,
+.sidebar.collapsed .history-item span {
+    display: none;
+}
+
+.sidebar.collapsed .new-chat-btn span {
+    display: none;
+}
+
+/* 主内容区域样式 */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+}
+
+.chat-container {
+    flex: 1;
+    display: flex;
+    width: 100%;
+}
+
+.chat-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.chat-header {
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+}
+
+.chat-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.chat-messages {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: var(--secondary-color);
+}
+
+.message {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.message-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-right: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: bold;
+}
+
+.message-sender {
+    font-weight: bold;
+}
+
+.message-time {
+    font-size: 12px;
+    color: #888;
+    margin-left: 8px;
+}
+
+.message-content {
+    padding: 12px 16px;
+    border-radius: 8px;
+    max-width: 80%;
+    align-self: flex-start;
+    background-color: var(--agent-msg-bg);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.user-message .message-content {
+    align-self: flex-end;
+    background-color: var(--user-msg-bg);
+}
+
+.agent-message .message-content {
+    align-self: flex-start;
+}
+
+.thinking {
+    font-style: italic;
+    color: #666;
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.message-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+}
+
+.message-table th,
+.message-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.message-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+/* 输入区域样式 */
+.input-area {
+    padding: 15px 20px;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    gap: 10px;
+    background-color: white;
+}
+
+.message-input {
+    flex: 1;
+    padding: 10px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    resize: none;
+    height: 50px;
+    outline: none;
+}
+
+.message-input:focus {
+    border-color: var(--primary-color);
+}
+
+.send-button {
+    padding: 0 20px;
+    background-color: var(--send-button-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.send-button:hover {
+    opacity: 0.9;
+}
+
+.send-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+/* 右侧预览区域样式 */
+.preview-panel {
+    width: 0;
+    height: 100%;
+    border-left: 1px solid var(--border-color);
+    background-color: white;
+    transition: width 0.3s ease;
+    overflow: hidden;
+}
+
+.preview-panel.expanded {
+    width: 40%;
+}
+
+.preview-header {
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.preview-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.preview-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-color);
+    font-size: 20px;
+}
+
+.preview-content {
+    padding: 20px;
+    height: calc(100% - 60px);
+    overflow-y: auto;
+}
+
+.preview-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* 响应式布局 */
+@media (max-width: 992px) {
+    .sidebar {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        transform: translateX(-100%);
+    }
+    
+    .sidebar.active {
+        transform: translateX(0);
+    }
+    
+    .preview-panel.expanded {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        z-index: 20;
+    }
+}
+
+/* 动画效果 */
+.loading-dots {
+    display: inline-block;
+}
+
+.loading-dots::after {
+    content: '.';
+    animation: dots 1.5s steps(5, end) infinite;
+}
+
+@keyframes dots {
+    0%, 20% { content: '.'; }
+    40% { content: '..'; }
+    60% { content: '...'; }
+    80%, 100% { content: ''; }
+}

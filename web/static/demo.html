@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>王晓慧 - 品牌服务报告系统（静态演示）</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* 用于静态演示的内联样式 */
+        .preview-panel {
+            width: 40%; /* 默认显示预览面板 */
+        }
+    </style>
+</head>
+<body>
+    <!-- 左侧边栏 -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <span class="sidebar-title">对话历史</span>
+            <button class="sidebar-toggle" id="sidebar-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <!-- 王晓慧头像 -->
+        <div class="agent-profile">
+            <img src="images/王晓慧头像logo.png" alt="王晓慧" class="agent-avatar">
+            <div class="agent-info">
+                <div class="agent-name">王晓慧</div>
+                <div class="agent-title">AI取数分析助手</div>
+            </div>
+        </div>
+        <button class="new-chat-btn" id="new-chat-btn">
+            <i class="fas fa-plus"></i>
+            <span>新建对话</span>
+        </button>
+        <div class="chat-history" id="chat-history">
+            <!-- 示例历史对话 -->
+            <div class="history-item active">
+                <i class="fas fa-comment"></i>
+                <span>品牌服务报告分析</span>
+            </div>
+            <div class="history-item">
+                <i class="fas fa-comment"></i>
+                <span>金银铜牌数据查询</span>
+            </div>
+            <div class="history-item">
+                <i class="fas fa-comment"></i>
+                <span>流量数据分析</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 主内容区域 -->
+    <div class="main-content">
+        <div class="chat-container">
+            <!-- 对话区域 -->
+            <div class="chat-area">
+                <div class="chat-header">
+                    <div class="chat-title">王晓慧 - 品牌服务报告系统</div>
+                    <button class="preview-toggle" id="preview-toggle">
+                        <i class="fas fa-expand-alt"></i>
+                    </button>
+                </div>
+                <div class="chat-messages" id="chat-messages">
+                    <!-- 示例对话消息 -->
+                    <div class="message agent-message">
+                        <div class="message-header">
+                            <div class="avatar">王</div>
+                            <span class="message-sender">王晓慧</span>
+                            <span class="message-time">10:00</span>
+                        </div>
+                        <div class="message-content">
+                            您好，我是品牌服务报告系统的主对话Agent王晓慧。请问有什么可以帮助您？
+                        </div>
+                    </div>
+                    
+                    <div class="message user-message">
+                        <div class="message-header">
+                            <div class="avatar">用</div>
+                            <span class="message-sender">用户</span>
+                            <span class="message-time">10:01</span>
+                        </div>
+                        <div class="message-content">
+                            帮我查下1月到3月份，郑远元商户的流量数据。
+                        </div>
+                    </div>
+                    
+                    <div class="message agent-message">
+                        <div class="message-header">
+                            <div class="avatar">思</div>
+                            <span class="message-sender">思考过程</span>
+                            <span class="message-time">10:01</span>
+                        </div>
+                        <div class="message-content thinking">
+                            这是用户询问郑远元商户1-3月的流量数据，我需要调用流量分析Agent来处理这个请求。流量数据应该包含总曝光次数、广告曝光次数、自然曝光次数、商户详情页UV等指标，并按照品牌和城市维度进行分析。
+                        </div>
+                    </div>
+                    
+                    <div class="message agent-message">
+                        <div class="message-header">
+                            <div class="avatar">王</div>
+                            <span class="message-sender">王晓慧</span>
+                            <span class="message-time">10:02</span>
+                        </div>
+                        <div class="message-content">
+                            我正在为您查询郑远元商户1月到3月的流量数据，请稍候...<br><br>
+                            
+                            查询完成，以下是郑远元商户1-3月的流量数据分析（按品牌及城市维度）：
+                            
+                            <table class="message-table">
+                                <tr>
+                                    <th>月份</th>
+                                    <th>城市</th>
+                                    <th>总曝光次数</th>
+                                    <th>广告曝光次数</th>
+                                    <th>自然曝光次数</th>
+                                    <th>商户详情页UV</th>
+                                </tr>
+                                <tr>
+                                    <td>1月</td>
+                                    <td>北京</td>
+                                    <td>24,567</td>
+                                    <td>15,234</td>
+                                    <td>9,333</td>
+                                    <td>8,742</td>
+                                </tr>
+                                <tr>
+                                    <td>1月</td>
+                                    <td>上海</td>
+                                    <td>18,932</td>
+                                    <td>12,453</td>
+                                    <td>6,479</td>
+                                    <td>7,239</td>
+                                </tr>
+                                <tr>
+                                    <td>2月</td>
+                                    <td>北京</td>
+                                    <td>26,789</td>
+                                    <td>16,542</td>
+                                    <td>10,247</td>
+                                    <td>9,345</td>
+                                </tr>
+                                <tr>
+                                    <td>2月</td>
+                                    <td>上海</td>
+                                    <td>20,487</td>
+                                    <td>13,675</td>
+                                    <td>6,812</td>
+                                    <td>8,123</td>
+                                </tr>
+                                <tr>
+                                    <td>3月</td>
+                                    <td>北京</td>
+                                    <td>30,123</td>
+                                    <td>18,765</td>
+                                    <td>11,358</td>
+                                    <td>10,875</td>
+                                </tr>
+                                <tr>
+                                    <td>3月</td>
+                                    <td>上海</td>
+                                    <td>23,567</td>
+                                    <td>15,234</td>
+                                    <td>8,333</td>
+                                    <td>9,456</td>
+                                </tr>
+                            </table>
+                            
+                            <br>数据分析：<br>
+                            1. 郑远元商户在1-3月期间，整体流量呈稳步上升趋势
+                            2. 北京地区的流量数据普遍高于上海地区
+                            3. 3月份的各项指标表现最佳，总曝光次数环比增长了10.2%
+                            4. 广告曝光占比约为65%，自然曝光占比约为35%
+                            
+                            您需要查看更多城市的数据或其他月份的数据吗？
+                        </div>
+                    </div>
+                </div>
+                <div class="input-area">
+                    <textarea class="message-input" id="message-input" placeholder="输入您的问题..."></textarea>
+                    <button class="send-button" id="send-button">发送</button>
+                </div>
+            </div>
+
+            <!-- 右侧预览区域 -->
+            <div class="preview-panel expanded" id="preview-panel">
+                <div class="preview-header">
+                    <div class="preview-title">报告预览</div>
+                    <button class="preview-close" id="preview-close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="preview-content" id="preview-content">
+                    <!-- 预览内容 -->
+                    <div style="padding: 20px; font-family: Arial, sans-serif;">
+                        <h1 style="color: #333; text-align: center;">郑远元商户流量分析报告</h1>
+                        <h3 style="color: #666; text-align: center;">2025年第一季度（1-3月）</h3>
+                        
+                        <div style="margin: 30px 0;">
+                            <h2 style="color: #333;">整体流量趋势</h2>
+                            <div style="height: 300px; background-color: #f5f5f5; margin: 20px 0; display: flex; align-items: center; justify-content: center;">
+                                [此处为流量趋势图表]
+                            </div>
+                            <p style="line-height: 1.6;">郑远元商户在2025年第一季度的流量数据呈现稳步上升的趋势。从1月到3月，总曝光次数增长了22.6%，商户详情页UV增长了24.4%。这表明品牌曝光度和用户关注度都有所提升。</p>
+                        </div>
+                        
+                        <div style="margin: 30px 0;">
+                            <h2 style="color: #333;">城市表现对比</h2>
+                            <div style="height: 300px; background-color: #f5f5f5; margin: 20px 0; display: flex; align-items: center; justify-content: center;">
+                                [此处为城市对比图表]
+                            </div>
+                            <p style="line-height: 1.6;">北京地区的各项流量指标普遍高于上海地区，其中总曝光次数平均高出约20%，详情页UV高出约12%。建议在上海地区增加品牌曝光和推广力度，缩小与北京的差距。</p>
+                        </div>
+                        
+                        <div style="margin: 30px 0;">
+                            <h2 style="color: #333;">广告效果分析</h2>
+                            <div style="height: 300px; background-color: #f5f5f5; margin: 20px 0; display: flex; align-items: center; justify-content: center;">
+                                [此处为广告效果分析图表]
+                            </div>
+                            <p style="line-height: 1.6;">广告曝光在总曝光中占比约为65%，自然曝光占比约为35%。从转化率来看，广告曝光到详情页UV的转化率约为58%，高于行业平均水平。建议维持现有广告投放策略，并考虑适度提升自然搜索排名。</p>
+                        </div>
+                        
+                        <div style="margin: 30px 0;">
+                            <h2 style="color: #333;">建议与展望</h2>
+                            <ul style="line-height: 1.8;">
+                                <li>继续保持北京地区的品牌曝光度，同时加强上海地区的推广力度</li>
+                                <li>优化商户详情页内容，提高用户停留时间和转化率</li>
+                                <li>关注3月份流量激增的原因，评估是否与特定营销活动相关</li>
+                                <li>考虑扩展至其他城市，如广州、深圳等一线城市</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 简化版的JavaScript，仅用于静态演示
+        document.addEventListener('DOMContentLoaded', () => {
+            const sidebar = document.getElementById('sidebar');
+            const sidebarToggle = document.getElementById('sidebar-toggle');
+            const previewPanel = document.getElementById('preview-panel');
+            const previewToggle = document.getElementById('preview-toggle');
+            const previewClose = document.getElementById('preview-close');
+            
+            // 侧边栏折叠/展开功能
+            sidebarToggle.addEventListener('click', () => {
+                sidebar.classList.toggle('collapsed');
+            });
+            
+            // 预览面板显示/隐藏功能
+            function togglePreview() {
+                previewPanel.classList.toggle('expanded');
+            }
+            
+            previewToggle.addEventListener('click', togglePreview);
+            previewClose.addEventListener('click', togglePreview);
+            
+            // 历史对话项点击事件
+            const historyItems = document.querySelectorAll('.history-item');
+            historyItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    historyItems.forEach(i => i.classList.remove('active'));
+                    item.classList.add('active');
+                });
+            });
+            
+            // 发送按钮和输入框事件
+            const messageInput = document.getElementById('message-input');
+            const sendButton = document.getElementById('send-button');
+            
+            function sendDemoMessage() {
+                const message = messageInput.value.trim();
+                if (message) {
+                    alert('这是静态演示页面，无法发送实际消息。在实际应用中，这里会将消息发送到后端并获取回复。');
+                    messageInput.value = '';
+                }
+            }
+            
+            sendButton.addEventListener('click', sendDemoMessage);
+            
+            messageInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    sendDemoMessage();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
